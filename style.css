@@ -1,0 +1,428 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #080808;
+
+    font-family: Arial, sans-serif;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+.calculator {
+    width: 100%;
+    max-width: 420px;
+
+    background: #111111;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 25px rgba(255, 140, 0, 0.15);
+}
+
+
+/* =========================
+   DISPLAY
+========================= */
+
+#display {
+    width: 100%;
+
+    height: 75px;
+
+    background: #000000;
+
+    color: #ff8c00;
+
+    border: 2px solid #222222;
+
+    border-radius: 12px;
+
+    padding: 10px 15px;
+
+    text-align: right;
+
+    font-size: 30px;
+
+    outline: none;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   MODE BUTTONS
+========================= */
+
+.mode-buttons {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.mode-buttons button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #1c1c1c;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.mode-buttons button:hover {
+    background: #ff8c00;
+
+    color: #000000;
+}
+
+.mode-buttons button.active {
+    background: #ff8c00;
+
+    color: #000000;
+}
+
+
+/* =========================
+   BASIC BUTTONS
+========================= */
+
+.buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.buttons button {
+    height: 60px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #1c1c1c;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+.buttons button:hover {
+    background: #2a2a2a;
+}
+
+.buttons button:active {
+    transform: scale(0.94);
+}
+
+
+/* Special buttons */
+
+.buttons .special {
+    color: #ff8c00;
+}
+
+
+/* Operators */
+
+.buttons .operator {
+    color: #ff8c00;
+}
+
+
+/* Equals */
+
+.buttons .equals {
+    background: #ff8c00;
+
+    color: #000000;
+
+    font-weight: bold;
+}
+
+.buttons .equals:hover {
+    background: #ffa733;
+}
+
+
+/* Zero */
+
+.buttons .zero {
+    grid-column: span 3;
+}
+
+
+/* =========================
+   SCIENTIFIC BUTTONS
+========================= */
+
+#scientific-buttons {
+    display: none;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+#scientific-buttons button {
+    height: 55px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #1c1c1c;
+
+    color: #ff8c00;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+#scientific-buttons button:hover {
+    background: #2a2a2a;
+}
+
+#scientific-buttons button:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================
+   HISTORY
+========================= */
+
+#history {
+    display: none;
+
+    height: 310px;
+
+    overflow-y: auto;
+
+    padding: 5px;
+}
+
+#history h3 {
+    color: #ff8c00;
+
+    text-align: center;
+
+    margin-bottom: 12px;
+
+    font-size: 20px;
+}
+
+
+/* Clear History */
+
+#clear-history {
+    display: block;
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #1c1c1c;
+
+    color: #ff8c00;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#clear-history:hover {
+    background: #ff8c00;
+
+    color: #000000;
+}
+
+
+/* History items */
+
+.history-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    background: #1c1c1c;
+
+    padding: 10px;
+
+    margin-bottom: 8px;
+
+    border-radius: 8px;
+}
+
+.history-item span {
+    color: white;
+
+    cursor: pointer;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    flex: 1;
+}
+
+.history-item span:hover {
+    color: #ff8c00;
+}
+
+
+/* Delete history */
+
+.delete-history {
+    border: none;
+
+    background: transparent;
+
+    color: #ff8c00;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.delete-history:hover {
+    color: white;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .calculator {
+        padding: 15px;
+    }
+
+    #display {
+        height: 65px;
+
+        font-size: 25px;
+    }
+
+    .buttons {
+        gap: 7px;
+    }
+
+    .buttons button {
+        height: 55px;
+
+        font-size: 18px;
+    }
+
+    #scientific-buttons {
+        gap: 7px;
+    }
+
+    #scientific-buttons button {
+        height: 50px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .calculator {
+        padding: 12px;
+    }
+
+    .buttons button {
+        height: 50px;
+
+        font-size: 17px;
+    }
+
+    #scientific-buttons button {
+        height: 46px;
+
+        font-size: 13px;
+    }
+
+    .mode-buttons button {
+        font-size: 13px;
+
+        padding: 10px;
+    }
+
+}
+
+
+/* =========================
+   TOUCH FEEDBACK
+========================= */
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+    transform: scale(0.95);
+}

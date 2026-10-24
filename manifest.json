@@ -1,0 +1,10 @@
+{
+    "name": "Calc Siuuu",
+    "short_name": "Calculator",
+    "description": "A powerful scientific calculator built from scratch.",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#080808",
+    "theme_color": "#ff8c00",
+    "orientation": "portrait-primary"
+}

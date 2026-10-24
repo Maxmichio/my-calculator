@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Calculator</title>
+    <link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#ff8c00">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <div class="calculator">
+
+
+        <!-- =========================
+             CALCULATOR DISPLAY
+        ========================== -->
+
+        <input
+            type="text"
+            id="display"
+            readonly
+        >
+
+
+        <!-- =========================
+             MODE BUTTONS
+        ========================== -->
+
+        <div class="mode-buttons">
+
+            <button id="scientific-toggle">
+                Scientific
+            </button>
+
+            <button id="history-toggle">
+                History
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             BASIC CALCULATOR
+        ========================== -->
+
+        <div class="buttons">
+
+
+            <!-- Top Row -->
+
+            <button class="special">
+                C
+            </button>
+
+            <button class="special">
+                ⌫
+            </button>
+
+            <button class="special">
+                (
+            </button>
+
+            <button class="special">
+                )
+            </button>
+
+
+            <!-- Operator Row -->
+
+            <button class="operator">
+                %
+            </button>
+
+            <button class="operator">
+                /
+            </button>
+
+            <button class="operator">
+                *
+            </button>
+
+            <button class="operator">
+                -
+            </button>
+
+
+            <!-- Number Row -->
+
+            <button>
+                7
+            </button>
+
+            <button>
+                8
+            </button>
+
+            <button>
+                9
+            </button>
+
+            <button class="operator">
+                +
+            </button>
+
+
+            <button>
+                4
+            </button>
+
+            <button>
+                5
+            </button>
+
+            <button>
+                6
+            </button>
+
+            <button class="special">
+                ±
+            </button>
+
+
+            <button>
+                1
+            </button>
+
+            <button>
+                2
+            </button>
+
+            <button>
+                3
+            </button>
+
+            <button class="special">
+                .
+            </button>
+
+
+            <!-- Bottom Row -->
+
+            <button class="zero">
+                0
+            </button>
+
+            <button class="equals">
+                =
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             SCIENTIFIC CALCULATOR
+        ========================== -->
+
+        <div id="scientific-buttons">
+
+
+            <button>
+                √
+            </button>
+
+            <button>
+                ∛
+            </button>
+
+            <button>
+                x²
+            </button>
+
+            <button>
+                x³
+            </button>
+
+
+            <button>
+                xʸ
+            </button>
+
+            <button>
+                1/x
+            </button>
+
+            <button>
+                !
+            </button>
+
+            <button>
+                π
+            </button>
+
+
+            <button>
+                e
+            </button>
+
+            <button>
+                eˣ
+            </button>
+
+            <button>
+                10ˣ
+            </button>
+
+
+            <button>
+                sin
+            </button>
+
+            <button>
+                sin⁻¹
+            </button>
+
+            <button>
+                cos
+            </button>
+
+            <button>
+                cos⁻¹
+            </button>
+
+
+            <button>
+                tan
+            </button>
+
+            <button>
+                tan⁻¹
+            </button>
+
+            <button id="angle-mode">
+                DEG
+            </button>
+
+
+            <button>
+                log
+            </button>
+
+            <button>
+                ln
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             HISTORY PANEL
+        ========================== -->
+
+        <div id="history">
+
+
+            <h3>
+                History
+            </h3>
+
+
+            <button id="clear-history">
+                Clear History
+            </button>
+
+
+            <div id="history-list"></div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
+    <script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("./service-worker.js")
+                .then(() => {
+                    console.log("Service Worker registered successfully.");
+                })
+                .catch(error => {
+                    console.error("Service Worker registration failed:", error);
+                });
+        });
+    }
+</script>
+
+</body>
+
+</html>
